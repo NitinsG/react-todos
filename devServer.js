@@ -5,7 +5,7 @@ import config from './webpack.config.babel';
 import Express from 'express';
 
 const app = new Express();
-const port = 3000;
+const port = 8080;
 
 const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, {
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(port, error => {
+app.listen(port,'0.0.0.0', error => {
   /* eslint-disable no-console */
   if (error) {
     console.error(error);
